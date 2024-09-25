@@ -1,22 +1,24 @@
-name: llm_spiritist
+name: spiritism-chat
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.10
+  - python=3.10.10
 
   - jupyterlab=4.1.6
-  - numpy=1.26.4
   - pandas=2.2.2
-  - matplotlib=3.8.4
-  - scipy=1.13.0
-  - scikit-learn=1.4.2
-  - seaborn=0.13.2
-  - duckdb
-  - langchain=0.1.16
-  - SQLAlchemy=2.0.29
-  - duckdb-engine=0.12.0
-  - openai=1.23.6
-  - python-dotenv=1.0.1
+  - langchain=0.3.0
+  - langchain-text-splitters
+  - openai=1.45.1
   - tensorflow
   - ebooklib
+
+  - pip:
+    - langchain_community
+    - langchain_chroma
+    - langchain_core
+    - tensorflow-macos
+    - tensorflow-metal
+    - unstructured==0.14.0
+    - sentence-transformers
+    - tf-keras
