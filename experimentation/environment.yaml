@@ -7,15 +7,16 @@ dependencies:
 
   - jupyterlab=4.1.6
   - pandas=2.2.2
-  - langchain=0.3.0
   - langchain-text-splitters
   - openai=1.45.1
   - tensorflow
   - ebooklib
 
   - pip:
+    - langchain==0.3.1
+    - langchain-chroma
+    - langchain_huggingface
     - langchain_community
-    - langchain_chroma
     - langchain_core
     - tensorflow-macos
     - tensorflow-metal

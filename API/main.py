@@ -21,34 +21,47 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from langchain_community.document_loaders import UnstructuredEPubLoader
 from langchain_community.llms import Ollama
-from langchain.embeddings.huggingface import HuggingFaceEmbeddings
+#from langchain.embeddings.huggingface import HuggingFaceEmbeddings
+#from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 llm = Ollama(model="llama3.1")
 
 
 
-import os
-mypath = '../data'
+# import os
+# mypath = '../data'
 
-epub_files = [file for file in os.listdir(mypath) if file.endswith('.epub')]
-epub_files
+# epub_files = [file for file in os.listdir(mypath) if file.endswith('.epub')]
+# epub_files
 
-data = []
-for file_name in epub_files:
-    print(file_name)
-    loader = UnstructuredEPubLoader("../data/" + file_name)
-    data.append(loader.load())
+# data = []
+# for file_name in epub_files:
+#     print(file_name)
+#     loader = UnstructuredEPubLoader("../data/" + file_name)
+#     data.append(loader.load())
 
-list_concat = [item for sublist in data for item in sublist]
+# list_concat = [item for sublist in data for item in sublist]
 
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-splits = text_splitter.split_documents(list_concat)
+# text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+# splits = text_splitter.split_documents(list_concat)
 
-embeddings = HuggingFaceEmbeddings(
+embedding_function = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-l6-v2",     # Provide the pre-trained model's path
 )
 
-vectorstore = Chroma.from_documents(documents=splits, embedding=embeddings)
+# vectorstore = Chroma.from_documents(documents=splits, embedding=embeddings)
+
+
+# Set the directory where the data was persisted
+persist_directory = "../vectodb"
+
+# Load the existing Chroma DB from the persistence directory
+vectorstore = Chroma(
+    collection_name="spiritism_db",
+    persist_directory=persist_directory,
+    embedding_function=embedding_function
+)
 
 # Retrieve and generate using the relevant snippets of the blog.
 retriever = vectorstore.as_retriever()
