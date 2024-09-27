@@ -1,0 +1,28 @@
+name: spiritism-chat-api
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10.10
+
+  - jupyterlab=4.1.6
+  - pandas=2.2.2
+  - langchain=0.3.0
+  - langchain-text-splitters
+  - openai=1.45.1
+  - tensorflow
+  - ebooklib
+
+  - pip:
+    - fastapi
+    - uvicorn
+    - langchain_community
+    - langchain_chroma
+    - langchain_core
+    - pypandoc
+    - tensorflow-macos
+    - tensorflow-metal
+    - unstructured==0.14.0
+    - sentence-transformers
+    - tf-keras
+    
