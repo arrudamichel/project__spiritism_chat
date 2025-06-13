@@ -1,0 +1,11 @@
+name: spiritism-chat-webpage
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10.10
+
+  - pip:
+    - streamlit
+    - watchdog
+    

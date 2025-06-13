@@ -3,16 +3,14 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.10.10
-
-  - jupyterlab=4.1.6
-  - pandas=2.2.2
-  - langchain-text-splitters
-  - openai=1.45.1
-  - tensorflow
-  - ebooklib
-
+  - python=3.11
   - pip:
+    - jupyterlab==4.1.6
+    - pandas==2.2.2
+    - langchain-text-splitters
+    - openai==1.45.1
+    - tensorflow
+    - ebooklib
     - langchain==0.3.1
     - langchain-chroma
     - langchain_huggingface
@@ -26,4 +24,3 @@ dependencies:
     - unstructured==0.14.0
     - sentence-transformers
     - tf-keras
-    

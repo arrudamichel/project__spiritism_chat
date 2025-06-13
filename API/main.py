@@ -6,7 +6,7 @@ from langchain_core.load import loads
 
 #from langchain.llms import OpenAI
 
-app = FastAPI()
+app = FastAPI(docs_url="/docs", redoc_url="/redoc")
 
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
@@ -89,7 +89,7 @@ You must answer just using the given context. \
 Use the following pieces of retrieved context to answer the question. \
 Always answer in Portuguese. \
 If you don't know the answer, just say that you don't know. \
-Use five sentences maximum and keep the answer concise.\
+Use three sentences maximum and keep the answer concise.\
 
 {context}"""
 qa_prompt = ChatPromptTemplate.from_messages(
