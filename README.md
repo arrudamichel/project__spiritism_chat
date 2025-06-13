@@ -22,7 +22,65 @@ Our goal is to provide a learning and consultation tool that facilitates access 
 
 Explore, ask, and discover more about Spiritism with our dedicated chat system!
 
-## Architeture
-
 ## Instalation
 
+The project has 3 differents environments: experimentation, API and Webpage. Follow the steps to install the environments.
+
+## Experimentation
+
+To install and activate environment:
+```
+conda env create -f experimentation/environment.yml
+conda activate spiritism-chat
+```
+
+To run the notebooks:
+```
+jupyter-lab
+```
+
+To access the notebook:
+
+```
+http://localhost:8888/lab
+```
+
+## API
+
+To install and activate environment:
+```
+conda env create -f api/environment.yml
+conda activate spiritism-chat-api
+```
+
+
+To run the API:
+```
+uvicorn main:app --reload --port 8000
+```
+
+To access the documentation from API:
+
+```
+http://localhost:8080/docs
+```
+
+## Webpage
+
+To install and activate environment:
+```
+conda env create -f webpage/environment.yml
+conda activate spiritism-chat-webpage
+```
+
+To run the page:
+
+```
+cd webpage/
+streamlit run app.py --server.port 8502
+```
+
+To access de page:
+```
+http://localhost:8502/
+```
